@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: tutorialblog
+
+  datasource:
+    url: jdbc:mysql://31.97.239.83:3306/tblog?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: root
+    password: Javadeveloper@123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+        maximum-pool-size: 10           # max number of connections in pool
+        minimum-idle: 5                 # minimum idle connections to keep
+        idle-timeout: 30000             # 30s before closing idle connection
+        max-lifetime: 1800000           # 30 minutes, connection lifetime
+        connection-timeout: 30000       # 30s max wait for a free connection
+        leak-detection-threshold: 20000 # (optional) log if conn >20s checkout
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+  thymeleaf:
+    cache: false
+
+server:
+  port: 8085
